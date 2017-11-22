@@ -5,7 +5,7 @@ public class Battle {
 	public static void main(String[] args) {
 		Enemy[] enemy;
 		enemy = new Enemy[1];
-		enemy[0] = new Enemy("Bat", 10, 1);
+		enemy[0] = new Enemy("Bat", 5, 1);
 		
 		Prompt playerName = new Prompt();
 		Player player = new Player(playerName.getString("Welcome to battletext! What is your name?"), 200, 20);
