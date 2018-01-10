@@ -34,7 +34,8 @@ public class Enemy {
 					
 					name = eElement.getElementsByTagName("Name").item(0).getTextContent();
 					health = Integer.parseInt(eElement.getElementsByTagName("Health").item(0).getTextContent());
-					strength = Integer.parseInt(eElement.getElementsByTagName("Strength").item(0).getTextContent());					
+					strength = Integer.parseInt(eElement.getElementsByTagName("Strength").item(0).getTextContent());
+					exp = Integer.parseInt(eElement.getElementsByTagName("Exp").item(0).getTextContent());
 					
 				}
 		} catch (Exception e) {
@@ -45,6 +46,7 @@ public class Enemy {
 	private String name;
 	private int health;
 	private int strength;
+	private int exp;
 
 	
 	public String getName() {
@@ -57,6 +59,28 @@ public class Enemy {
 	
 	public int getStrength() {
 		return strength;
+	}
+	
+	public int getExp() {
+		return exp;
+	}
+	
+	public void getInfo() {
+		System.out.println("Enemy: " + getName() + " | Health: " + getHealth() + " | Strength: " + getStrength());
+
+	}
+
+	public void takeDamage(int strength2) {
+		this.health = getHealth() - strength2;
+
+		
+	}
+
+	public void stillAlive() {
+		if (this.health <=0){
+			System.out.println("You have defeated: " + getName());
+		}
+		
 	}
 }
 
