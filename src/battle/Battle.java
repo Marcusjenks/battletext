@@ -13,7 +13,7 @@ public class Battle {
 		boolean running = true;
 		while (running) {
 		enemy = new Enemy();
-		//enemy.getInfo();
+		enemy.getInfo();
 		
 		enemy.takeDamage(player.getStrength());
 		enemy.stillAlive();
