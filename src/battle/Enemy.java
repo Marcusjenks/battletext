@@ -43,10 +43,8 @@ public class Enemy extends Entity{
 				e.printStackTrace();
 			}
 		}
-		public void stillAlive() {
-			if (this.getHealth() <=0){
+		public void dead() {
 				System.out.println("You defeated " + this.getName() + "!");
-		}
 	}
 		
 	}

@@ -9,9 +9,7 @@ public class Player extends Entity{
 		this.exp = exp;
 		
 	}	
-	public void stillAlive() {
-		if (this.getHealth() <=0){
+	public void dead() {
 		System.out.println("You died! How Lame");
-		}
 	}
 }

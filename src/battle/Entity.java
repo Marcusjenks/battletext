@@ -32,11 +32,11 @@ public class Entity {
 	}
 
 	public void takeDamage(int strength2) {
-		this.health = getHealth() - strength2;
+		this.health = this.health - strength2;
 		
 	}
 	
-	public void stillAlive() {
+	public void dead() {
 		}
 		
 }
