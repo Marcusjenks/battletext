@@ -27,12 +27,13 @@ public class Entity {
 	}
 	
 	public void getInfo() {
-		System.out.println("Name: " + getName() + " | Health: " + getHealth() + " | Strength: " + getStrength());
+		System.out.println(getName() + " | Health: " + getHealth() + " | Strength: " + getStrength() + "\n");
 
 	}
 
 	public void takeDamage(int strength2) {
 		this.health = this.health - strength2;
+		System.out.println(this.name + " takes " + strength2 + " damage!\n");
 		
 	}
 	

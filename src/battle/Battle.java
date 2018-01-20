@@ -3,33 +3,44 @@ package battle;
 public class Battle {
 
 	public static void main(String[] args) {
+		Prompt playerAction = new Prompt();
 		Prompt playAgain = new Prompt();
 		Prompt playerName = new Prompt();
 		Player player = new Player(playerName.getString("Welcome to battletext! What is your name?"), 20, 5, 0);
-		player.getInfo();
+		String choice;
 		String answer;
-		Enemy enemy = new Enemy();
+		Enemy enemy;
 		
 		boolean running = true;
 		
 		while (running) {
 			enemy = new Enemy();
-			enemy.getInfo();
 			
-			while(enemy.getHealth() >= 0 && player.getHealth() >=0) {
+			System.out.println("\nYou have encountered: " + enemy.getName() + "! \n");
+									
+			while(enemy.getHealth() > 0 && player.getHealth() >0) {
+				
+				enemy.getInfo();
+
+				player.getInfo();
+
+				choice = playerAction.getAttack("\nWhat will you do? \n(1) Attack \n(2) Run away");
+				
+				if (choice.equals("1")) {				
+					enemy.takeDamage(player.getStrength());
 			
-				enemy.takeDamage(player.getStrength());
+					if(enemy.getHealth() <= 0) {
+						enemy.dead();
+						break;
+					}
 			
-				if(enemy.getHealth() <= 0) {
-					enemy.dead();
+					player.takeDamage(enemy.getStrength());
+				}
+				else {
 					break;
 				}
-			
-			player.takeDamage(enemy.getStrength());
 			}
 
-			System.out.println(player.getHealth());
-			System.out.println(enemy.getHealth());
 		
 			if (player.getHealth() <= 0) {
 				System.out.println("The battle for glory has ended. Perhaps you will have better luck in the next life...");
