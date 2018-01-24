@@ -11,42 +11,41 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-public class Enemy extends Entity{
+public class Enemy extends Entity {
 
 	public Enemy() {
-		//super(name, health, strength, exp);
-					
-			try {
-				
-				File fXmlFile = new File("enemy.xml");
-				DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-				DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-				Document doc = dBuilder.parse(fXmlFile);
-							
-				NodeList nList = doc.getElementsByTagName("Enemy");
-				
-					Random random = new Random();
+		// super(name, health, strength, exp);
 
-					Node nNode = nList.item(random.nextInt(nList.getLength()));
+		try {
 
-					if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+			File fXmlFile = new File("enemy.xml");
+			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+			Document doc = dBuilder.parse(fXmlFile);
 
-						Element eElement = (Element) nNode;
-						
-						name = eElement.getElementsByTagName("Name").item(0).getTextContent();
-						health = Integer.parseInt(eElement.getElementsByTagName("Health").item(0).getTextContent());
-						strength = Integer.parseInt(eElement.getElementsByTagName("Strength").item(0).getTextContent());
-						exp = Integer.parseInt(eElement.getElementsByTagName("Exp").item(0).getTextContent());
-						
-					}
-			} catch (Exception e) {
-				e.printStackTrace();
+			NodeList nList = doc.getElementsByTagName("Enemy");
+
+			Random random = new Random();
+
+			Node nNode = nList.item(random.nextInt(nList.getLength()));
+
+			if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+
+				Element eElement = (Element) nNode;
+
+				name = eElement.getElementsByTagName("Name").item(0).getTextContent();
+				health = Integer.parseInt(eElement.getElementsByTagName("Health").item(0).getTextContent());
+				strength = Integer.parseInt(eElement.getElementsByTagName("Strength").item(0).getTextContent());
+				exp = Integer.parseInt(eElement.getElementsByTagName("Exp").item(0).getTextContent());
+
 			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		public void dead() {
-				System.out.println("You defeated " + this.getName() + "!");
-	}
-		
 	}
 
+	public void dead() {
+		System.out.println("You defeated " + this.getName() + "!");
+	}
 
+}

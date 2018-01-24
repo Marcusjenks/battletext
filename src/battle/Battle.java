@@ -6,7 +6,7 @@ public class Battle {
 		Prompt playerAction = new Prompt();
 		Prompt playAgain = new Prompt();
 		Prompt playerName = new Prompt();
-		Player player = new Player(playerName.getString("Welcome to battletext! What is your name?"), 20, 5, 0);
+		Player player = new Player(playerName.getString("Welcome to battletext! What is your name?"), 20, 5, 1, 0);
 		String choice;
 		String answer;
 		Enemy enemy;
@@ -33,6 +33,8 @@ public class Battle {
 
 						if (enemy.getHealth() <= 0) {
 							enemy.dead();
+							player.gainExp(enemy.getExp());
+							player.levelUp();
 							fighting = false;
 							response = false;
 						}

@@ -4,24 +4,24 @@
 		<Name>Bat</Name>
 		<Health>5</Health>
 		<Strength>1</Strength>
-		<Exp>5</Exp>
+		<Exp>120</Exp>
 	</Enemy>
 	<Enemy>
 		<Name>Goblin</Name>
 		<Health>10</Health>
-		<Strength>3</Strength>		
-		<Exp>5</Exp>
+		<Strength>3</Strength>
+		<Exp>125</Exp>
 	</Enemy>
 	<Enemy>
 		<Name>Giant</Name>
 		<Health>50</Health>
 		<Strength>10</Strength>
-		<Exp>5</Exp>
+		<Exp>525</Exp>
 	</Enemy>
 	<Enemy>
 		<Name>Ball</Name>
 		<Health>1</Health>
 		<Strength>0</Strength>
-		<Exp>5</Exp>
+		<Exp>50</Exp>
 	</Enemy>
 </Enemies>
